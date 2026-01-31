@@ -1,14 +1,12 @@
-
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 interface SidebarProps {
-  activeModule: string;
-  setActiveModule: (module: string) => void;
   companyName: string;
   logoUrl?: string;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ activeModule, setActiveModule, companyName, logoUrl }) => {
+const Sidebar: React.FC<SidebarProps> = ({ companyName, logoUrl }) => {
   const menuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: 'fa-chart-line' },
     { id: 'customers', label: 'Customers', icon: 'fa-users' },
@@ -33,35 +31,33 @@ const Sidebar: React.FC<SidebarProps> = ({ activeModule, setActiveModule, compan
       </div>
       <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
         {menuItems.map((item) => (
-          <button
+          <NavLink
             key={item.id}
-            onClick={() => setActiveModule(item.id)}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
-              activeModule === item.id 
-              ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20' 
-              : 'text-slate-400 hover:bg-slate-800 hover:text-white'
-            }`}
+            to={`/${item.id}`}
+            className={({ isActive }) => `w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${isActive
+                ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20'
+                : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+              }`}
           >
             <i className={`fa-solid ${item.icon} w-6 text-center`}></i>
             <span className="font-medium">{item.label}</span>
-          </button>
+          </NavLink>
         ))}
-        
+
         <div className="pt-4 mt-4 border-t border-slate-800">
-          <button
-            onClick={() => setActiveModule('settings')}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
-              activeModule === 'settings' 
-              ? 'bg-blue-600 text-white' 
-              : 'text-slate-400 hover:bg-slate-800 hover:text-white'
-            }`}
+          <NavLink
+            to="/settings"
+            className={({ isActive }) => `w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${isActive
+                ? 'bg-blue-600 text-white'
+                : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+              }`}
           >
             <i className="fa-solid fa-gear w-6 text-center"></i>
             <span className="font-medium">Settings</span>
-          </button>
+          </NavLink>
         </div>
       </nav>
-      
+
       <div className="p-4 border-t border-slate-800 bg-slate-900/50">
         <div className="bg-slate-800 rounded-xl p-3 flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center font-bold text-white shadow-inner">R</div>

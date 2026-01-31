@@ -40,8 +40,8 @@ const generateCustomers = () => {
 export const MOCK_CUSTOMERS = generateCustomers();
 
 export const MOCK_VEHICLES: Vehicle[] = [
-  { id: 'V1', number: 'WP-ABC-1234', capacityValue: 2000, capacityUnit: 'Liters', waterTypeAllowed: ['Drinking', 'RO'], assignedDriverId: 'D1', status: 'Active', fuelType: 'Diesel', avgMileage: 12 },
-  { id: 'V2', number: 'WP-XYZ-5678', capacityValue: 1500, capacityUnit: 'Bottles', waterTypeAllowed: ['Industrial'], assignedDriverId: 'D2', status: 'Active', fuelType: 'Diesel', avgMileage: 10 },
+  { id: 'V1', number: 'WP-ABC-1234', capacityValue: 2000, capacityUnit: 'Liters', waterTypeAllowed: ['Drinking', 'RO'], assignedDriverId: 'D1', status: 'Active', fuelType: 'Diesel', avgMileage: 12, width: 2.5, height: 3.2 },
+  { id: 'V2', number: 'WP-XYZ-5678', capacityValue: 1500, capacityUnit: 'Bottles', waterTypeAllowed: ['Industrial'], assignedDriverId: 'D2', status: 'Active', fuelType: 'Diesel', avgMileage: 10, width: 2.2, height: 2.8 },
 ];
 
 export const MOCK_DRIVERS: Driver[] = [

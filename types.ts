@@ -8,6 +8,7 @@ export enum UserRole {
 
 export interface Customer {
   id: string;
+  displayId?: string;
   name: string;
   phone: string;
   whatsapp?: string;
@@ -35,6 +36,8 @@ export interface Vehicle {
   status: 'Active' | 'Repair';
   fuelType: 'Diesel' | 'Petrol' | 'Electric';
   avgMileage: number;
+  width?: number;
+  height?: number;
 }
 
 export interface Driver {
@@ -67,4 +70,13 @@ export interface Transaction {
   timestamp: string;
   status: 'Completed' | 'Skipped' | 'Partial';
   gpsProof?: string;
+}
+
+export interface Expense {
+  id: string;
+  title: string;
+  amount: number;
+  category: 'Operating Cost' | 'Maintenance' | 'Salary/Comm' | 'Other' | 'Fuel';
+  description?: string;
+  date: string;
 }
