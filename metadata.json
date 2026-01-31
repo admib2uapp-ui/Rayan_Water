@@ -1,0 +1,7 @@
+{
+  "name": "HydroFlow - Water Distribution Management System",
+  "description": "A comprehensive end-to-end water distribution ERP including master data management, route planning, driver navigation, and financial analytics.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
