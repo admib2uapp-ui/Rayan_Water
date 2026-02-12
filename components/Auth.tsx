@@ -29,6 +29,9 @@ const Auth: React.FC = () => {
             const { error, data } = await supabase.auth.signUp({
                 email,
                 password,
+                options: {
+                    emailRedirectTo: import.meta.env.VITE_APP_URL,
+                },
             });
 
             if (error) {
